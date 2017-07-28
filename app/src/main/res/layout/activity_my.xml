@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?><!--账户信息-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_gray"
+    android:divider="@drawable/shape_soild_view"
+    android:orientation="vertical"
+    android:showDividers="end|middle">
+
+    <android.support.v7.widget.Toolbar
+        android:background="@color/color_tab_blue"
+        android:id="@+id/personal_toobar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/personal_data_toobar_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/GrayF3F3F3"
+            android:divider="@drawable/shape_soild_view"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <RelativeLayout
+                android:id="@+id/rl_account_user_img"
+                android:layout_width="fill_parent"
+                android:layout_height="70.0dip"
+                android:background="@drawable/selector_account"
+                android:padding="10.0dip">
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="@string/tx" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/civ_account_img"
+                    android:layout_width="50.0dip"
+                    android:layout_height="50.0dip"
+                    android:layout_toLeftOf="@+id/iv_account_right"
+                    android:src="@mipmap/head_pic_default" />
+
+                <ImageView
+                    android:id="@+id/iv_account_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:src="@mipmap/arrow_right_2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+                >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="@string/yhm" />
+
+                <TextView
+                    android:id="@+id/usename"
+                    style="@style/tv_account_info_text_right"
+                    android:text="\ 123456789" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_certiFication"
+                style="@style/rl_account_info">
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="@string/smrz" />
+
+                <TextView
+                    android:id="@+id/tv_account_id_card"
+                    style="@style/tv_account_info_text_right2"
+                    android:text="未认证" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+                >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="@string/yhlx" />
+
+                <TextView
+                    android:id="@+id/user_message"
+                    style="@style/tv_account_info_text_right2"
+                    android:text="个人" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+               >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="@string/sjhm" />
+
+                <TextView
+                    android:id="@+id/tv_account_info_phone"
+                    style="@style/tv_account_info_text_right2"
+                    android:text="\ 13699827475" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+                >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="@string/dzyx" />
+
+                <TextView
+                    android:id="@+id/tv_account_mail"
+                    style="@style/tv_account_info_text_right2"
+                    android:text="865545216@qq.com" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+                >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="@string/wsdzzh" />
+
+                <TextView
+                    android:id="@+id/tv_account_bank_number"
+                    style="@style/tv_account_info_text_right2"
+                    android:text="开通" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+                >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/sfzhm" />
+
+                <TextView
+                    android:id="@+id/tv_account_id_card_number"
+                    style="@style/tv_account_info_text_right2"
+                    android:text="369*8323213" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+                android:layout_marginTop="12.0dip"
+               >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="登录密码" />
+
+                <TextView style="@style/tv_account_info_text_right2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                style="@style/rl_account_info"
+               >
+
+                <TextView
+                    android:id="@+id/jy_password"
+                    style="@style/tv_account_info_text"
+                    android:text="交易密码" />
+
+                <TextView style="@style/tv_account_info_text_right2" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_account_info_password"
+                style="@style/rl_account_info"
+                >
+
+                <TextView
+                    style="@style/tv_account_info_text"
+                    android:text="手势密码" />
+
+                <TextView style="@style/tv_account_info_text_right2" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/close"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15.0dip"
+                android:layout_marginLeft="12.0dip"
+                android:layout_marginRight="12.0dip"
+                android:layout_marginTop="20.0dip"
+                android:background="@drawable/shape_account_tcdl"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="12.0dip"
+                android:text="@string/tcdl"
+                android:textColor="@color/RedFE4243"
+                android:textSize="20.0sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

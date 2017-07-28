@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap android:src="@mipmap/ic_radio_button" android:tint="@color/green"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

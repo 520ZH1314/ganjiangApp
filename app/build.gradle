@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'realm-android'
+android {
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/rxjava.xml'
+    }
+    defaultConfig {
+        applicationId "moye.ganjiang.com.ganjiang"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+apply plugin: 'com.android.application' //or apply plugin: 'java'
+apply plugin: 'me.tatarka.retrolambda'
+
+dependencies {
+
+    compile 'com.android.support:design:26.0.0-alpha1'
+}
+repositories {
+    maven { url "https://jitpack.io" }
+}
+dependencies {
+    compile 'com.orhanobut:logger:1.8'
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    compile 'com.hwangjr.rxbus:rxbus:1.0.6'
+    //RxJava2 Adapter
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.github.donkingliang:GroupedRecyclerViewAdapter:1.0.1'
+    compile 'com.github.dongjunkun:DropDownMenu:1.0.4'
+    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+    compile 'me.yokeyword:fragmentation:0.10.7'
+    compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.youth.banner:banner:1.4.9'  //最新版本
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.zxy.android:recovery:0.0.8'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.google.dagger:dagger:2.4'
+    apt 'com.google.dagger:dagger-compiler:2.4'
+    provided 'javax.annotation:jsr250-api:1.0'
+    //java注解
+    compile 'com.google.code.gson:gson:2.4'
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+    compile 'com.android.support:recyclerview-v7:25.0.0'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    testCompile 'junit:junit:4.12'
+}
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
+}

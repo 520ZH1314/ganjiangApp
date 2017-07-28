@@ -1,0 +1,46 @@
+{
+  "selectMoney": [
+    {
+      "name": "嘉庆宝",
+      "date": 555,
+      "money": "567",
+      "precent": "11%"
+
+    },
+    {
+      "name": "嘉庆宝1",
+      "date": 553,
+      "money": "564",
+      "precent": "12%"
+    },
+    {
+      "name": "嘉庆宝2",
+      "date": 552,
+      "money": "561",
+      "precent": "13%"
+    }
+  ],
+  "takeMoney": [
+    {
+      "name": "债权宝",
+      "date": 552,
+      "money": "561",
+      "precent": "11%"
+    },
+    {
+      "name": "债权宝1",
+      "date": 552,
+      "money": "561",
+      "precent": "13%"
+    },
+    {
+      "name": "债权宝2",
+      "date": 552,
+      "money": "563",
+      "precent": "14%"
+    }
+
+
+
+  ]
+}

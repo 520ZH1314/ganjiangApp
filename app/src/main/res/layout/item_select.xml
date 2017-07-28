@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--selectItem 精选 item-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/section_name"
+        style="@style/text_black_16sp"
+        android:layout_margin="@dimen/ten"
+        android:text="嘉财宝"
+        android:textSize="15.0sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ten"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:id="@+id/item_tv_percentage"
+                style="@style/text_orange66_16sp"
+                android:text="11%"
+                android:textSize="25.0sp" />
+
+            <TextView
+                style="@style/text_gray_16sp"
+                android:layout_marginTop="@dimen/ten"
+                android:text="平均历史年化收益"
+                android:textSize="13.0sp" />
+        </LinearLayout>
+
+        <View style="@style/solid_vertical_view" />
+
+        <LinearLayout
+            android:layout_width="0.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/twenty"
+            android:layout_marginRight="@dimen/ten"
+            android:layout_marginTop="@dimen/ten"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/section_date"
+                style="@style/text_gray_16sp"
+                android:text="封闭期 545天"
+                android:textSize="13.0sp" />
+
+            <TextView
+                android:id="@+id/section_money"
+                style="@style/text_gray_16sp"
+                android:layout_marginTop="@dimen/twenty"
+                android:text="剩余金额:114.51万"
+                android:textSize="13.0sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/solid_hor_view_E1E1E1"
+        android:layout_marginTop="@dimen/five" />
+</LinearLayout>

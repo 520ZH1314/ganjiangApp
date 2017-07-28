@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="moye.ganjiang.com.ganjiang.ui.activity.regist.RegistOrLoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toobar_regist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_tab_blue">
+
+            <TextView
+                android:textSize="18sp"
+                android:textColor="@color/white_70"
+                android:text="@string/regist_login"
+                android:id="@+id/tv_regist_toobar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout style="@style/ll_ganjiang_text">
+            <TextView
+                style="@style/tv_ganjiang_text"
+                android:layout_width="0.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_weight="0.5"
+                android:text="@string/phone" />
+            <EditText
+                android:textCursorDrawable="@color/grayE1E1E1"
+                android:id="@+id/ed_registorlogin"
+                style="@style/et_ganjiang_text"
+                android:layout_width="0.0dip"
+                android:layout_weight="2.0"
+                android:hint="@string/registorlogin"
+               />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_registorlogin"
+            style="@style/button_text_orange"
+            android:layout_marginTop="20.0dip"
+            android:background="@drawable/shape_next_blue"
+            android:text="@string/text_next" />
+    </LinearLayout>
+</RelativeLayout>

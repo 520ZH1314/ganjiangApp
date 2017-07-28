@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="moye.ganjiang.com.ganjiang.ui.activity.login.LoginActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toobar_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_tab_blue">
+
+        <TextView
+            android:id="@+id/tv_login_toobar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/white_70"
+            android:textSize="18sp" />
+    </android.support.v7.widget.Toolbar>
+        <TextView
+            android:id="@+id/tv_login_number"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:lines="1"
+            android:padding="10.0dip"
+            android:text="@string/dxfs"
+            android:textColor="@color/text_phone_gray"
+            android:textSize="14.0sp" />
+  
+
+    <LinearLayout style="@style/ll_ganjiang_text">
+
+        <TextView
+            style="@style/tv_ganjiang_text"
+            android:layout_width="0.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_weight="1.0"
+            android:text="@string/dlmm" />
+
+        <EditText
+            android:id="@+id/et_login_mm"
+            style="@style/et_ganjiang_text"
+            android:layout_width="0.0dip"
+            android:layout_weight="2.0"
+            android:hint="@string/qsrdlmm" />
+
+        <LinearLayout
+            android:layout_width="0.0dip"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.2"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <View
+                style="@style/solid_vertical_view"
+                android:layout_marginBottom="15.0dip"
+                android:layout_marginTop="15.0dip" />
+
+            <TextView
+                android:id="@+id/tv_login_yzm"
+                style="@style/tv_ganjiang_text"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10.0dip"
+                android:clickable="true"
+                android:gravity="center|right"
+                android:lines="1"
+                android:text="@string/zhmm"
+                android:textColor="@color/text_zhaohuimima"
+                android:textSize="16.0sp" />
+        </LinearLayout>
+    </LinearLayout>
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/button_text_orange"
+            android:layout_marginTop="20.0dip"
+            android:text="@string/text_enter" />
+
+    </LinearLayout>
+    </LinearLayout>

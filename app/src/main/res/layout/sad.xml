@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout style="@style/ll_ganjiang_text">
+
+        <TextView
+            style="@style/tv_ganjiang_text"
+            android:layout_marginLeft="10.0dip"
+            android:text="@string/szmm" />
+
+        <EditText
+            android:id="@+id/tv_resetpassword_pass"
+            style="@style/et_ganjiang_text"
+            android:hint="@string/szdlmm"
+            android:inputType="textPassword"
+            android:maxLength="20" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/ll_ganjiang_text">
+
+        <TextView
+            style="@style/tv_ganjiang_text"
+            android:layout_marginLeft="10.0dip"
+            android:text="确认密码" />
+
+        <EditText
+            android:id="@+id/tv_resetpassword_enterpass"
+            style="@style/et_ganjiang_text"
+            android:hint="@string/qrdlmm"
+            android:inputType="textPassword"
+            android:maxLength="20" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12.0dip"
+        android:text="@string/qtxzf"
+        android:textColor="@color/Gray999999"
+        android:textSize="12.0sp" />
+
+    <Button
+        android:id="@+id/fbtn_login_enter"
+        style="@style/button_text_orange"
+        android:layout_marginTop="20.0dip"
+        android:background="@drawable/shape_next_blue"
+        android:text="@string/text_next" />
+</LinearLayout>

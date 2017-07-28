@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_gray"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="120.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:background="@drawable/selector_account"
+        android:orientation="vertical"
+        android:padding="10.0dip">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/Blue287FB4"
+                android:paddingBottom="0.0dip"
+                android:paddingLeft="2.0dip"
+                android:paddingRight="2.0dip"
+                android:paddingTop="0.0dip"
+                android:text="实"
+                android:textColor="@color/white"
+                android:textSize="14.0sp" />
+
+            <TextView
+                android:id="@+id/creaditor_company"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip"
+                android:layout_marginRight="2.0dip"
+                android:layout_weight="8.0"
+                android:ellipsize="end"
+                android:lines="1"
+                android:padding="2.0dip"
+                android:text="广东省深圳市宝安区沙井星河大厦"
+                android:textColor="@color/Black202020"
+                android:textSize="16.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总额:"
+                android:textColor="@color/gray"
+                android:textSize="13.0sp" />
+
+            <TextView
+                android:id="@+id/creaditor_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2.0dip"
+                android:text="1042,28"
+                android:textColor="@color/Black202020"
+                android:textSize="14.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="元"
+                android:textColor="@color/text_phone_gray"
+                android:textSize="14.0sp" />
+        </LinearLayout>
+
+        <View
+            style="@style/solid_hor_view_E1E1E1"
+            android:layout_marginTop="5.0dip" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip">
+
+            <TextView
+                android:id="@+id/tv_transfer_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年利率"
+                android:textColor="@color/gray"
+                android:textSize="13.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100.0dip"
+                android:layout_toRightOf="@+id/tv_transfer_year"
+                android:text="期限"
+                android:textColor="@color/gray"
+                android:textSize="13.0sp" />
+
+            <TextView
+                android:id="@+id/creaditor_tv_transfer_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/tv_transfer_year"
+                android:gravity="bottom"
+                android:text="8.04"
+                android:textColor="@color/OrangeFD6600"
+                android:textSize="20.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/creaditor_tv_transfer_rate"
+                android:text="%"
+                android:textColor="@color/OrangeFD6600"
+                android:textSize="14.0sp" />
+
+            <TextView
+                android:id="@+id/creaditor_tv_transfer_num"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="101.0dip"
+                android:layout_toRightOf="@+id/creaditor_tv_transfer_rate"
+                android:gravity="bottom"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="15.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/creaditor_tv_transfer_num"
+                android:gravity="bottom"
+                android:text="个月"
+                android:textColor="@color/gray"
+                android:textSize="13.0sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/shape_circle"
+                android:gravity="center"
+                android:text="购买"
+                android:textColor="@color/white"
+                android:textSize="16.0sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
