@@ -20,7 +20,7 @@ public interface MainFragmentContract {
     interface Presenter extends BasePresenter<View> {
 
         void getData();
-
+        String getLoginStatus();
         void getMoreData();
         String getSessionId();
     }

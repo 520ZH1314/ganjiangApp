@@ -26,6 +26,7 @@
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -36,12 +37,16 @@
             android:name=".ui.activity.regist.RegistOrLoginActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".ui.activity.regist.RegistActivity"
+            android:name=".ui.activity.login.LoginActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".ui.activity.login.LoginActivity"
-            android:launchMode="singleTop">
-        </activity>
+            android:name=".ui.activity.regist.RegistActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".ui.activity.mine.CertificationActivity" />
+        <activity android:name=".ui.activity.home.ProductActivity" />
+        <activity android:name=".ui.activity.login.UpDatePassWordActivity" />
+        <activity android:name=".ui.activity.home.BankDepositsActivity" />
+        <activity android:name=".ui.activity.home.BankBackActivity"></activity>
     </application>
 
 </manifest>

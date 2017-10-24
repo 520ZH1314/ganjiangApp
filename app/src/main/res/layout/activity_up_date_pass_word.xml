@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="moye.ganjiang.com.ganjiang.ui.activity.login.UpDatePassWordActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toobar_update_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="43dip"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/tv_update_pwd_toobar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="修改密码"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </android.support.v7.widget.Toolbar>
+
+    <moye.ganjiang.com.ganjiang.widget.MyEditText
+        android:maxLength="11"
+        android:textCursorDrawable="@drawable/color_cursor"
+        android:layout_marginTop="30dip"
+        android:id="@+id/update_phone"
+        android:background="@null"
+        android:hint="请输入手机号码"
+        android:textSize="14sp"
+        android:layout_marginRight="10dip"
+        android:layout_marginLeft="10dip"
+        android:layout_width="match_parent"
+        android:layout_height="33dip" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <moye.ganjiang.com.ganjiang.widget.MyEditText
+            android:maxLength="8"
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:hint="请输入验证码"
+            android:textSize="14sp"
+            android:id="@+id/update_phone_code"
+            android:background="@null"
+            android:layout_margin="10dip"
+            android:layout_width="match_parent"
+            android:layout_height="33dip" />
+        <TextView
+            android:id="@+id/tv_get_code"
+            android:layout_marginRight="10dip"
+            android:layout_centerVertical="true"
+            android:text="获取验证码"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/front12"
+            android:textColor="@color/red1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <Button
+        android:id="@+id/fbtn_update_next"
+        style="@style/button_text_orange"
+        android:layout_marginTop="20.0dip"
+        android:text="下一步" />
+</LinearLayout>

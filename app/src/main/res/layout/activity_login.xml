@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context="moye.ganjiang.com.ganjiang.ui.activity.login.LoginActivity">
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -13,7 +14,7 @@
         android:id="@+id/toobar_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_tab_blue">
+        android:background="@color/red1">
 
         <TextView
             android:id="@+id/tv_login_toobar"
@@ -24,18 +25,40 @@
             android:textColor="@color/white_70"
             android:textSize="18sp" />
     </android.support.v7.widget.Toolbar>
-        <TextView
-            android:id="@+id/tv_login_number"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:lines="1"
-            android:padding="10.0dip"
-            android:text="@string/dxfs"
-            android:textColor="@color/text_phone_gray"
-            android:textSize="14.0sp" />
-  
+        <LinearLayout
+            android:background="@color/white"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <ImageView
+                android:src="@drawable/logo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            </LinearLayout>
+      <LinearLayout
+          android:layout_marginTop="30dip"
+          android:background="@drawable/shape_edit_phone"
+          android:layout_width="match_parent"
+          android:layout_height="55dip">
+
+          <TextView
+              style="@style/tv_ganjiang_text"
+              android:layout_width="0dip"
+              android:layout_marginLeft="10.0dip"
+              android:layout_weight="0.25"
+
+              android:text="手机号码"
+              android:textSize="14sp" />
+
+            <EditText
+                android:textCursorDrawable="@drawable/color_cursor"
+                android:id="@+id/et_login_phone"
+                style="@style/et_ganjiang_text"
+                android:layout_width="0dip"
+                android:layout_weight="0.75"
+                android:hint="请输入手机号码" />
+
+        </LinearLayout>
 
     <LinearLayout style="@style/ll_ganjiang_text">
 
@@ -43,42 +66,57 @@
             style="@style/tv_ganjiang_text"
             android:layout_width="0.0dip"
             android:layout_marginLeft="10.0dip"
-            android:layout_weight="1.0"
-            android:text="@string/dlmm" />
+            android:layout_weight="0.25"
+            android:text="@string/dlmm"
+            android:textSize="14sp" />
 
         <EditText
+            android:textCursorDrawable="@drawable/color_cursor"
+            android:inputType="textPassword"
             android:id="@+id/et_login_mm"
             style="@style/et_ganjiang_text"
             android:layout_width="0.0dip"
-            android:layout_weight="2.0"
+            android:layout_weight="0.75"
             android:hint="@string/qsrdlmm" />
 
-        <LinearLayout
-            android:layout_width="0.0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.2"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <View
-                style="@style/solid_vertical_view"
-                android:layout_marginBottom="15.0dip"
-                android:layout_marginTop="15.0dip" />
+    </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_login_yzm"
                 style="@style/tv_ganjiang_text"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_marginLeft="10.0dip"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
                 android:clickable="true"
                 android:gravity="center|right"
                 android:lines="1"
                 android:text="@string/zhmm"
-                android:textColor="@color/text_zhaohuimima"
-                android:textSize="16.0sp" />
-        </LinearLayout>
-    </LinearLayout>
+                android:textColor="@color/gary_949494"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_login_go_regist"
+                style="@style/tv_ganjiang_text"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginTop="5dp"
+                android:clickable="true"
+                android:gravity="center|right"
+                android:lines="1"
+                android:text=" 手机号快速注册"
+                android:textColor="@color/red1"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
         <Button
             android:id="@+id/btn_login"
             style="@style/button_text_orange"

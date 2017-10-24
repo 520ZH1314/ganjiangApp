@@ -22,14 +22,27 @@ import retrofit2.http.Query;
  */
 
 public interface Regist {
+
  @GET("ui/app/userbase/smssend.action?")
  Flowable<CodeResponseBean> getRegist(@Query("mobilephone") String mobilephone);
+
 
  @FormUrlEncoded
  @POST("ui/app/userbase/register.action")
  Flowable<RegistResponseBean> goToRegist(@Field("mobilephone") String mobilephone, @Field("password") String password);
+
+
  @GET("ui/app/master.action")
  Flowable<LoginResponseBean>goToLogin(@Query("Method") String userlogin,@Query("username") String username,@Query("password") String Password);
+
+
+
  @GET("ui/app/userMaster.action")
  Flowable<UserMeassageBean>getUserMessages(@Header("Accept-Language") String head,@Query("Method")String Method, @Query("sessionId") String SessionId);
+
+
+ @FormUrlEncoded
+ @POST("ui/app/master.action")
+ Flowable<String>getUpdatePwd(@Field("Method")String getValidationCode,@Field("phoneNumber") String PhoneNumber);
+
 }

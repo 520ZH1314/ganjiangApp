@@ -2,6 +2,7 @@ package moye.ganjiang.com.ganjiang.contract.fragments;
 
 import moye.ganjiang.com.ganjiang.base.BasePresenter;
 import moye.ganjiang.com.ganjiang.base.BaseView;
+import moye.ganjiang.com.ganjiang.model.contentdata.Markbean;
 
 /**
  * 项目名称:ganjiang
@@ -11,17 +12,16 @@ import moye.ganjiang.com.ganjiang.base.BaseView;
 
 public interface TakeMoneyContract {
     interface View extends BaseView {
+        void showContent(Markbean markbean);
 
-        void showContent();
-
-        void showMoreContent();
+        void showMoreContent(Markbean listBean);
     }
 
     interface Presenter extends BasePresenter<View> {
 
-        void getData();
+        void getData(int tstatus, int pageNum);
 
-        void getMoreData();
+        void getMoreData(int tstatus, int pageNum);
 
     }
 }

@@ -13,7 +13,7 @@ import butterknife.Unbinder;
 import moye.ganjiang.com.ganjiang.R;
 import moye.ganjiang.com.ganjiang.app.Contants;
 import moye.ganjiang.com.ganjiang.base.BaseActivity;
-import moye.ganjiang.com.ganjiang.contract.activity.RegistOrLoginContract;
+import moye.ganjiang.com.ganjiang.contract.activity.regist.RegistOrLoginContract;
 import moye.ganjiang.com.ganjiang.presenter.regist.RegistOrLoginPresenter;
 import moye.ganjiang.com.ganjiang.ui.activity.login.LoginActivity;
 import moye.ganjiang.com.ganjiang.utils.ToastUtil;
@@ -122,12 +122,15 @@ public class RegistOrLoginActivity extends BaseActivity<RegistOrLoginPresenter> 
           Intent regist=new Intent(this,RegistActivity.class);
           regist.putExtra(Contants.PHONENUMBER,phoneNumber);
            startActivity(regist);
+          finish();
     }
 
     @Override
     public void goToLogin() {
+
         Intent login =new Intent(this, LoginActivity.class);
         login.putExtra(Contants.PHONENUMBER,phoneNumber);
         startActivity(login);
+        finish();
     }
 }

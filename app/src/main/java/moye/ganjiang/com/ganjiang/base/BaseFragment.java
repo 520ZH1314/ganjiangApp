@@ -1,5 +1,6 @@
 package moye.ganjiang.com.ganjiang.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -17,13 +18,14 @@ import moye.ganjiang.com.ganjiang.utils.SnackbarUtil;
  * 项目名称:ganjiang
  * Created by lovezh
  * CreatedData: on 2017/6/24.
- * 基类
+ * Fragment 的基类
  */
 
 public abstract class BaseFragment<T extends BasePresenter> extends SimpleFragment implements BaseView {
+
     @Inject
     public T mPresenter;
-
+    public Context context;
     protected FragmentModule getFragmentModule() {
         return new FragmentModule(this);
     }
@@ -33,7 +35,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends SimpleFragme
                 .fragmentModule(getFragmentModule())
                 .build();
     }
-
 
 
     @Override
@@ -78,5 +79,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends SimpleFragme
     protected abstract void initView();
 
     protected abstract void initInject();
+
 
 }

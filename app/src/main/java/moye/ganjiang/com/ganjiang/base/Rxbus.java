@@ -33,6 +33,7 @@ public class Rxbus {
     // 提供了一个新的事件
     public void post(Object o) {
         bus.onNext(o);
+
     }
 
     // 根据传递的 eventType 类型返回特定类型(eventType)的 被观察者

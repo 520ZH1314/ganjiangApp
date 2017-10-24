@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@color/red1"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+            <LinearLayout
+                android:layout_marginLeft="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/tv_mine_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/xh_setting"
+                    android:text="170****5013"
+                    android:textColor="@color/white" />
+                <View
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"/>
+
+                <ImageView
+                    android:id="@+id/iv_mine_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="16dp"
+                    android:gravity="center"
+                    android:src="@drawable/xh_re" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/lin_Total_assets"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_mine_all_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="总资产（元）"
+                        android:textColor="@color/white" />
+                    <ImageView
+                        android:layout_centerVertical="true"
+                        android:background="@mipmap/xh_see"
+                        android:layout_toRightOf="@+id/tv_mine_all_money"
+                        android:id="@+id/hint_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_mine_count_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:background="@color/red1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+            <LinearLayout
+                android:id="@+id/lin_my_benfit"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/white"
+                    android:text="我的收益（元）"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_shouyi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="11.77"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+            <View
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorAccent"
+                android:layout_width="0.1dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:id="@+id/lin_Amount_to_be_collected"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/white"
+                    android:text="待收金额（元）"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_daishou"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="11.77"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <!--账户余额-->
+        <LinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="110dp">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:id="@+id/tv_account_balance"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:text="账户余额（元）"
+                    android:textSize="20dp"
+                    android:textColor="@color/global_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"/>
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:text="0.00"
+                    android:layout_toRightOf="@+id/tv_account_balance"
+                    android:id="@+id/tv_mine_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_mine_tixian"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="2.5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/fragment_mine_tixian"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="提现" />
+
+                <TextView
+                    android:id="@+id/tv_mine_chongzhi"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2.5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/fragment_mine_tixian"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="充值" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--四个点击事件-->
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+            <!--上-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <LinearLayout
+                    android:background="@drawable/btn_select_state_color"
+                    android:id="@+id/lin_invest"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_mine_invent_records"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/wd_tzjl"
+                        android:text="投资记录" />
+                </LinearLayout>
+                <View
+                    style="@style/view_vic"/>
+                <LinearLayout
+                    android:background="@drawable/btn_select_state_color"
+                    android:id="@+id/lin_assets"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_mine_asset_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/wd_tzjl"
+                        android:text="资产明细" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                style="@style/view_math_perent"/>
+            <!--下-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+                <LinearLayout
+                    android:background="@drawable/btn_select_state_color"
+                    android:id="@+id/lin_my_juanbao"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_mine_voucher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/wd_tzjl"
+                        android:text="我的卷包" />
+                </LinearLayout>
+                <View
+                    style="@style/view_vic"/>
+
+                <LinearLayout
+                    android:background="@drawable/btn_select_state_color"
+                    android:id="@+id/_lintiyanjin"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tv_mine_experience_gold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableTop="@drawable/wd_tzjl"
+                        android:text="我的体验金" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:drawableLeft="@drawable/xh_j"
+                android:layout_marginBottom="10dp"
+                android:textSize="10dp"
+                android:text="您的资产由江西银行全程存管"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

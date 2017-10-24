@@ -15,8 +15,14 @@ import dagger.Module;
 import dagger.Provides;
 import moye.ganjiang.com.ganjiang.BuildConfig;
 import moye.ganjiang.com.ganjiang.app.Contants;
+import moye.ganjiang.com.ganjiang.model.http.Bankback;
+import moye.ganjiang.com.ganjiang.model.http.ContentData;
+import moye.ganjiang.com.ganjiang.model.http.OpenBankNum;
 import moye.ganjiang.com.ganjiang.model.http.Regist;
 import moye.ganjiang.com.ganjiang.model.http.RegistOrlogin;
+import moye.ganjiang.com.ganjiang.qualifier.BankbackUrl;
+import moye.ganjiang.com.ganjiang.qualifier.ContentDataUrl;
+import moye.ganjiang.com.ganjiang.qualifier.OpenBankUrl;
 import moye.ganjiang.com.ganjiang.qualifier.RegistOrLoginUrl;
 import moye.ganjiang.com.ganjiang.qualifier.RegistUrl;
 import moye.ganjiang.com.ganjiang.utils.SystemUtil;
@@ -55,15 +61,42 @@ public class HttpModule {
     @Provides
     @RegistUrl
     Retrofit provideRegistRetrofit(Retrofit.Builder builder, OkHttpClient client) {
-        return createRetrofit(builder, client, Contants.BathUrl);
+        return createRetrofit(builder, client, Contants.REGISTBathUrl);
     }
   @Singleton
   @Provides
   @RegistOrLoginUrl
   Retrofit provideRegistOrLoginRetrofit(Retrofit.Builder builder, OkHttpClient client) {
-      return createRetrofit(builder, client, Contants.BathUrl);
+      return createRetrofit(builder, client, Contants.REGISTBathUrl);
+
   }
 
+  //银行返回的数据
+    @Singleton
+    @Provides
+    @BankbackUrl
+    Retrofit provideRegistBackBankRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+
+        return createRetrofit(builder, client, Contants.REQURL);
+
+    }
+
+
+
+ @Singleton
+ @Provides
+ @OpenBankUrl
+ Retrofit provideOpenBankRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+     return createRetrofit(builder, client, Contants.REGISTBathUrl);
+ }
+
+
+    @Singleton
+    @Provides
+    @ContentDataUrl
+    Retrofit provideGetMarkDataRetrofit(Retrofit.Builder builder, OkHttpClient client) {
+        return createRetrofit(builder, client, Contants.MARKBathUrl);
+    }
 
     @Singleton
     @Provides
@@ -142,6 +175,27 @@ public class HttpModule {
         return retrofit.create(Regist.class);
     }
 
+   //银行注册
+    @Singleton
+    @Provides
+    OpenBankNum provideRegistBankService(@OpenBankUrl Retrofit retrofit){
+        return  retrofit.create(OpenBankNum.class);
+    }
+
+    //
+
+    //标数据
+    @Singleton
+    @Provides
+    ContentData provideGetMarkDataService(@ContentDataUrl Retrofit retrofit){
+        return  retrofit.create(ContentData.class);
+    }
+    //请求银行的数据
+    @Singleton
+    @Provides
+    Bankback provideGetBackbankService(@BankbackUrl Retrofit retrofit){
+        return  retrofit.create(Bankback.class);
+    }
 
 
 //    @Singleton

@@ -25,8 +25,13 @@ public class MainFragmentPresenter extends RxPresenter<MainFragmentContract.View
  public void getData() {
 
  }
+//获取登录的状态
+    @Override
+    public String getLoginStatus() {
+        return dataManager.getLoginStatus();
+    }
 
- @Override
+    @Override
     public void getMoreData() {
 
     }

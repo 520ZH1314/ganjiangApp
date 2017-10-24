@@ -1,9 +1,9 @@
 package moye.ganjiang.com.ganjiang.model.http.pres;
 
 /**
- * @author: Est <codeest.dev@gmail.com>
- * @date: 2017/4/21
- * @description:
+ * @author: lovezh
+ * @date: 2017/9/21
+ * @description:Preferenceshelper的接口
  */
 
 public interface PreferencesHelper {
@@ -15,4 +15,12 @@ public interface PreferencesHelper {
     String getSessionId();
     void setSessionId(String SessionId);
     void clearSessionId(String  Key);
+    void setUserNumber(String Phone);
+    String getUserNumber();
+    void setOpenBankStatus(String status);
+    String getUserOpenBankStatus();
+    void setLoginStatus(String status);
+    String getLoginStatus();
+    void setReq_url(String req_url);
+    String getReq_url();
 }

@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import moye.ganjiang.com.ganjiang.R;
-import moye.ganjiang.com.ganjiang.model.select.GroupEntity;
-import moye.ganjiang.com.ganjiang.model.select.SelectBean;
+import moye.ganjiang.com.ganjiang.model.home.GroupEntity;
+import moye.ganjiang.com.ganjiang.model.home.HomeBean;
 
 /**
  * 项目名称:ganjiang
@@ -35,7 +35,7 @@ public class SelectAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public int getChildrenCount(int i) {
-        ArrayList<SelectBean> children = Data.get(i).getChildren();
+        ArrayList<HomeBean> children = Data.get(i).getChildren();
         return children == null ? 0 : children.size();
     }
 
@@ -77,7 +77,7 @@ public class SelectAdapter extends GroupedRecyclerViewAdapter {
 
     @Override
     public void onBindChildViewHolder(BaseViewHolder holder, int groupPosition, int childPosition) {
-        SelectBean entity = Data.get(groupPosition).getChildren().get(childPosition);
+        HomeBean entity = Data.get(groupPosition).getChildren().get(childPosition);
         holder.setText(R.id.section_name, entity.getmName());
         holder.setText(R.id.item_tv_percentage, entity.getmPrecent());
         holder.setText(R.id.section_date, entity.getmDate());

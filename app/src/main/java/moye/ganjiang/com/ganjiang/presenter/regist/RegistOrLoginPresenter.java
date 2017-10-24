@@ -6,7 +6,7 @@ import javax.inject.Inject;
 
 import moye.ganjiang.com.ganjiang.base.CommonSubscriber;
 import moye.ganjiang.com.ganjiang.base.RxPresenter;
-import moye.ganjiang.com.ganjiang.contract.activity.RegistOrLoginContract;
+import moye.ganjiang.com.ganjiang.contract.activity.regist.RegistOrLoginContract;
 import moye.ganjiang.com.ganjiang.model.http.DataManager;
 import moye.ganjiang.com.ganjiang.model.regist.RegistOrLoginResponseBean;
 import moye.ganjiang.com.ganjiang.utils.RxUtil;

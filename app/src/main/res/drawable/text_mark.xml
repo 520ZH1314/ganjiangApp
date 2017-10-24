@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval"
+    android:useLevel="false">
+    <!--实心-->
+    <solid android:color="@color/white_70"/>
+    <padding
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp" />
+    <stroke
+        android:width="1dip"
+        android:color="@color/gary_949494" />
+    <!-- 圆角 -->
+    <!--圆角-->
+    <corners android:radius="270dip">
+    </corners>
+    <!--边距-->
+
+
+    <!-- 大小 -->
+    <size
+        android:width="15dp"
+        android:height="15dp" />
+
+
+</shape>

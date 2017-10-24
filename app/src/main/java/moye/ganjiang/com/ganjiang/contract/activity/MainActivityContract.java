@@ -2,6 +2,7 @@ package moye.ganjiang.com.ganjiang.contract.activity;
 
 import moye.ganjiang.com.ganjiang.base.BasePresenter;
 import moye.ganjiang.com.ganjiang.base.BaseView;
+import moye.ganjiang.com.ganjiang.model.response.UserMeassageBean;
 
 /**
  * 项目名称:ganjiang
@@ -12,13 +13,14 @@ import moye.ganjiang.com.ganjiang.base.BaseView;
 public interface MainActivityContract {
     interface View extends BaseView {
 
-        void showContent();
+        void showContent(UserMeassageBean bean);
 
         void showMoreContent();
+
     }
 
     interface Presenter extends BasePresenter<View> {
-
+        void setLoginStatus(String status);
         void getData();
 
         void getMoreData();

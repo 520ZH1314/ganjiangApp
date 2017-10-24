@@ -22,12 +22,25 @@ public class MyPresenter extends RxPresenter<MyContract.View> implements MyContr
         this.mDataManager = mDataManager;
     }
 
+/**
+ *author:lovezh
+ *params:获取用户手机号码
+ *description:
+ */
+    @Override
+    public String getUserPhone() {
+       return mDataManager.getUserNumber();
+    }
 
     @Override
     public void getData() {
 
     }
 
+    @Override
+    public String getSessionId() {
+        return mDataManager.getSessionId();
+    }
 
 
     @Override
@@ -36,7 +49,14 @@ public class MyPresenter extends RxPresenter<MyContract.View> implements MyContr
     }
 
     @Override
+    public String getLoginStatus() {
+        return mDataManager.getLoginStatus();
+    }
+
+    @Override
     public void detachView() {
         super.detachView();
     }
+
+
 }

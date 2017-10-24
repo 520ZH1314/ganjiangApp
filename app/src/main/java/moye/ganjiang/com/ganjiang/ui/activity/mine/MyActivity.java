@@ -1,7 +1,9 @@
 package moye.ganjiang.com.ganjiang.ui.activity.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,10 +16,9 @@ import butterknife.Unbinder;
 import de.hdodenhof.circleimageview.CircleImageView;
 import moye.ganjiang.com.ganjiang.R;
 import moye.ganjiang.com.ganjiang.base.BaseActivity;
-import moye.ganjiang.com.ganjiang.contract.activity.MineContract;
+import moye.ganjiang.com.ganjiang.contract.activity.mine.SearchContract;
 import moye.ganjiang.com.ganjiang.model.response.UserMeassageBean;
-import moye.ganjiang.com.ganjiang.presenter.login.MinePresenter;
-import moye.ganjiang.com.ganjiang.utils.ToastUtil;
+import moye.ganjiang.com.ganjiang.presenter.find.SearchPresenter;
 
 /**
  * 项目名称:ganjiang
@@ -25,71 +26,39 @@ import moye.ganjiang.com.ganjiang.utils.ToastUtil;
  * CreatedData: on 2017/7/8.
  */
 
-public class MyActivity extends BaseActivity<MinePresenter> implements MineContract.View {
+public class MyActivity extends BaseActivity<SearchPresenter> implements SearchContract.View, View.OnClickListener {
     @BindView(R.id.personal_data_toobar_tv)
     TextView personalDataToobarTv;
     @BindView(R.id.personal_toobar)
     Toolbar personalToobar;
     @BindView(R.id.civ_account_img)
-    CircleImageView civAccountImg;
+    CircleImageView civAccountImg;//头像
     @BindView(R.id.iv_account_right)
     ImageView ivAccountRight;
     @BindView(R.id.rl_account_user_img)
-    RelativeLayout rlAccountUserImg;
+    RelativeLayout rlAccountUserImg;//头像列
     @BindView(R.id.usename)
-    TextView usename;
+    TextView usename;//用户名
     @BindView(R.id.tv_account_id_card)
-    TextView tvAccountIdCard;
+    TextView tvAccountIdCard;//实名认证
     @BindView(R.id.rl_certiFication)
-    RelativeLayout rlCertiFication;
+    RelativeLayout rlCertiFication;//实名认证列
     @BindView(R.id.user_message)
     TextView userMessage;
     @BindView(R.id.tv_account_info_phone)
-    TextView tvAccountInfoPhone;
+    TextView tvAccountInfoPhone;//手机号码
     @BindView(R.id.tv_account_mail)
-    TextView tvAccountMail;
+    TextView tvAccountMail;//电子邮箱
     @BindView(R.id.tv_account_bank_number)
-    TextView tvAccountBankNumber;
+    TextView tvAccountBankNumber;//是否开通微商
     @BindView(R.id.tv_account_id_card_number)
-    TextView tvAccountIdCardNumber;
+    TextView tvAccountIdCardNumber;//身份证号码
     @BindView(R.id.jy_password)
-    TextView jyPassword;
+    TextView jyPassword;//交易密码
     @BindView(R.id.rl_account_info_password)
     RelativeLayout rlAccountInfoPassword;
     @BindView(R.id.close)
     TextView close;
-//    @BindView(R.id.personal_data_toobar_tv)
-//    TextView personalDataToobarTv;
-//    @BindView(R.id.personal_toobar)
-//    Toolbar personalToobar;
-//    @BindView(R.id.civ_account_img)
-//    CircleImageView civAccountImg;//头像
-//    @BindView(R.id.iv_account_right)
-//    ImageView ivAccountRight;
-//    @BindView(R.id.rl_account_user_img)
-//    RelativeLayout rlAccountUserImg;//头像列
-//    @BindView(R.id.tv_account_id_card)
-//    TextView tvAccountIdCard;//实名认证
-//    @BindView(R.id.rl_certiFication)
-//    RelativeLayout rlCertiFication;
-//    @BindView(R.id.tv_account_info_phone)
-//    TextView tvAccountInfoPhone;//手机号码
-//    @BindView(R.id.tv_account_mail)
-//    TextView tvAccountMail;//电子邮箱
-//    @BindView(R.id.tv_account_bank_number)
-//    TextView tvAccountBankNumber;//是否开通微商
-//    @BindView(R.id.rl_account_info_password)
-//    RelativeLayout rlAccountInfoPassword;
-//    @BindView(R.id.usename)
-//    TextView myUsename;//用户名
-//    @BindView(R.id.user_message)
-//    TextView userMessage;//个人信息
-//    @BindView(R.id.jy_password)
-//    TextView jyPassword;//交易密码
-//    @BindView(R.id.tv_account_id_card_number)
-//    TextView tvAccountIdCardNumber;//身份证号码
-
-
     private String loginname;
     private String mobilephone;
     private String email;
@@ -118,7 +87,7 @@ public class MyActivity extends BaseActivity<MinePresenter> implements MineContr
             accounttype = bean.getAccounttype();//个人类型
             tradepass = bean.getTradepass();//交易密码
             certificationnumber = bean.certificationnumber;//身份证
-            ToastUtil.show(loginname);
+
 
         }
 
@@ -164,6 +133,9 @@ public class MyActivity extends BaseActivity<MinePresenter> implements MineContr
             tvAccountBankNumber.setText("已开通");
         }
         tvAccountIdCardNumber.setText(certificationnumber);
+        //设置点击事件
+        rlCertiFication.setOnClickListener(this);// 实名认证
+
     }
 
 
@@ -206,5 +178,22 @@ public class MyActivity extends BaseActivity<MinePresenter> implements MineContr
     @Override
     public void showMoreContent() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            //实名认证列
+            case R.id.rl_certiFication :
+                 //跳转到实名认证
+                goToSetting(CertificationActivity.class);
+                break;
+
+        }
+    }
+    //跳转界面
+    private void goToSetting( Class<?> cls) {
+        Intent Certification=new Intent(this,cls);
+        startActivity(Certification);
     }
 }

@@ -152,6 +152,101 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">15.0dip</item>
     </style>
+
+    <style name="text_wrap_content" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="view" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.1dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:background">@color/login_line_color</item>
+    </style>
+    <style name="view_vic" >
+        <item name="android:layout_width">0.1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/login_line_color</item>
+    </style>
+
+    <style name="view_math_perent" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.1dp</item>
+        <item name="android:background">@color/login_line_color</item>
+    </style>
+
+    <style name="rl_width_height" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="right_image" >
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:src">@mipmap/more</item>
+    </style>
+    <!--自定义 EditText-->
+    <style name="my_editext">
+        <item name="android:textSize">10sp</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_marginLeft">80dip</item>
+        <item name="android:layout_marginRight">10dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">33dip</item>
+    </style>
+    <!--银行开户界面的 textview-->
+    <style name="bank_text_view">
+        <item name="android:layout_margin">10dip</item>
+
+        <item name="textSize">@dimen/front12</item>
+        <item name="textColor">@color/black</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--银行开户界面的 View-->
+
+    <style name="bank_view">
+        <item name="android:layout_marginRight">10dip</item>
+        <item name="android:layout_marginLeft">10dip</item>
+        <item name="android:background">@color/gary_949494</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dip</item>
+    </style>
+    <!--自定义dialog-->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!--边框-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--半透明-->
+        <item name="android:windowNoTitle">true</item>
+        <!--无标题-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--背景透明-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--模糊-->
+    </style>
+
+    <style name="readioButton" >
+        <item name="android:background">@null</item>
+    </style>
+
+    <!--解决在activity显示dialog双重背景问题-->
+    <style name="dialog_default_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
     </resources>
 
 

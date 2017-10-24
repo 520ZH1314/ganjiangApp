@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="moye.ganjiang.com.ganjiang.ui.activity.home.BankDepositsActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toobar_open_bank"
+        android:layout_width="match_parent"
+        android:layout_height="43dip"
+        android:background="@color/white">
+        <TextView
+            android:id="@+id/tv_update_pwd_toobar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="银行存管"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:layout_marginTop="20dip"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ed_true_name"
+            android:hint="请输入中文姓名"
+
+           style="@style/my_editext" />
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/black"
+            style="@style/bank_text_view"
+            android:text="真实姓名 :"
+            />
+    </RelativeLayout>
+    <View
+
+        style="@style/bank_view">
+
+    </View>
+    <RelativeLayout
+
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ed_name_id"
+            style="@style/my_editext"
+
+            android:hint="请输入身份证号" />
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/black"
+            style="@style/bank_text_view"
+            android:text="身份证号 :"
+            />
+    </RelativeLayout>
+    <View
+
+        style="@style/bank_view">
+
+    </View>
+    <RelativeLayout
+
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ed_bank_bank_number"
+            android:hint="请输入银行卡号"
+
+            style="@style/my_editext" />
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/black"
+            style="@style/bank_text_view"
+            android:text="借 记 卡:"
+            />
+    </RelativeLayout>
+    <View
+
+        style="@style/bank_view">
+
+    </View>
+    <RelativeLayout
+
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ed_bank_phone_number"
+            android:hint="请输入手机号码"
+
+            style="@style/my_editext" />
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/black"
+            style="@style/bank_text_view"
+            android:text="预留号码:"
+            />
+    </RelativeLayout>
+    <View
+
+        style="@style/bank_view">
+
+    </View>
+
+    <Button
+        android:id="@+id/fbtn_open_bank"
+        style="@style/button_text_orange"
+        android:layout_marginTop="20.0dip"
+        android:text="立即开通" />
+</LinearLayout>

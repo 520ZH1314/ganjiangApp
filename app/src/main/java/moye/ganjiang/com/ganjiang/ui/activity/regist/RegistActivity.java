@@ -16,48 +16,54 @@ import butterknife.Unbinder;
 import moye.ganjiang.com.ganjiang.R;
 import moye.ganjiang.com.ganjiang.app.Contants;
 import moye.ganjiang.com.ganjiang.base.BaseActivity;
-import moye.ganjiang.com.ganjiang.contract.activity.RegistContract;
+import moye.ganjiang.com.ganjiang.contract.activity.regist.RegistContract;
 import moye.ganjiang.com.ganjiang.model.regist.CodeResponseBean;
 import moye.ganjiang.com.ganjiang.model.regist.RegistResponseBean;
 import moye.ganjiang.com.ganjiang.presenter.regist.RegistPresenter;
 import moye.ganjiang.com.ganjiang.ui.activity.login.LoginActivity;
 import moye.ganjiang.com.ganjiang.utils.ToastUtil;
 
+import static moye.ganjiang.com.ganjiang.R.id.tv_regist_yzm;
+/**
+ *author:lovezh
+ *params:注册界面
+ *description:
+ */
 public class RegistActivity extends BaseActivity<RegistPresenter> implements RegistContract.View, View.OnClickListener {
+
+
     @BindView(R.id.tv_regist_toobar)
-    TextView tvRegistToobar;//标题
+    TextView tvRegistToobar;
     @BindView(R.id.toobar_regist)
-    Toolbar toobarRegist;//toobar
-    @BindView(R.id.tv_regist_zc)
-    TextView tvRegistZc;//发送至xxx 号码
-    @BindView(R.id.et_regist_yzm)
-    EditText etRegistYzm;//请输入验证码
-    @BindView(R.id.tv_regist_yzm)
-    TextView tvRegistYzm;//验证码按钮
+    Toolbar toobarRegist;
+    @BindView(R.id.et_regist_phone)
+    EditText etRegistPhone;//注册手机号
     @BindView(R.id.et_regist_loginpass)
-    EditText etRegistLoginpass;//输入用户密码
+    EditText etRegistLoginpass;
     @BindView(R.id.cb_regist_showpass)
-    CheckBox cbRegistShowpass;//是否显示密码
+    CheckBox cbRegistShowpass;
     @BindView(R.id.cb_regist_xy)
-    CheckBox cbRegistXy;//确认注册的的checked 按钮
+    CheckBox cbRegistXy;
     @BindView(R.id.tv_regist_yhxy)
     TextView tvRegistYhxy;
     @BindView(R.id.fbtn_login_enter)
-    Button fbtnLoginEnter;//确定按钮
+    Button fbtnLoginEnter;
+    @BindView(R.id.et_regist_yzm)
+    EditText etRegistYzm;
+    @BindView(R.id.tv_regist_yzm)
+    TextView tvRegistYzm;
 
     private Unbinder unbinder;
-    private String PhoneNumber;
     private String code;
-    private String password;
     private String mobliephone;
+    private String password;
+    private String PhoneNumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         unbinder = ButterKnife.bind(this);
-
-        Intent intent = getIntent();
-        PhoneNumber = intent.getStringExtra(Contants.PHONENUMBER);
         initEventAndData();
     }
 
@@ -70,10 +76,9 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements Reg
     //初始化数据和事件
     @Override
     protected void initEventAndData() {
-        setToolBar(toobarRegist, "");
-        tvRegistZc.setText("发送至" + PhoneNumber);
-        tvRegistYzm.setOnClickListener(this);
+        setToolBar(toobarRegist, " ");
         fbtnLoginEnter.setOnClickListener(this);
+        tvRegistYzm.setOnClickListener(this);
     }
 
 
@@ -81,13 +86,24 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements Reg
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tv_regist_yzm:
+            case tv_regist_yzm://验证码
+
+                PhoneNumber = etRegistPhone.getText().toString().trim();
+                if(TextUtils.isEmpty(PhoneNumber)){
+                    ToastUtil.shortShow("手机号码不能为空");
+                    return;
+                }
+                mPresenter.sendCode(tvRegistYzm);//倒计时发送
                 mPresenter.getPhoneCode(PhoneNumber);
                 break;
-            case R.id.fbtn_login_enter:
-                password=etRegistLoginpass.getText().toString().trim();
+            case R.id.fbtn_login_enter://注册按钮
+                password = etRegistLoginpass.getText().toString().trim();
+
                 if (!cbRegistXy.isChecked()) {
                     ToastUtil.shortShow(" 请勾选同意选项");
+                } else if (TextUtils.isEmpty(PhoneNumber)) {
+                    ToastUtil.shortShow("手机号码不能为空");
+
                 } else if (TextUtils.isEmpty(etRegistYzm.getText().toString().trim())) {
 
                     ToastUtil.shortShow(" 验证码不能为空");
@@ -99,13 +115,16 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements Reg
                     ToastUtil.shortShow(" 密码不能为空");
                 } else {
                     //去注册
-                    mPresenter.goToRegist(PhoneNumber,password);
+                    mPresenter.goToRegist(PhoneNumber, password);
                 }
                 break;
 
-
+                 default:
+                     break;
         }
     }
+
+
 
 
     @Override
@@ -148,19 +167,19 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements Reg
     public void stateLoading() {
 
     }
-   //获取服务器返回的验证码
+
+    //获取服务器返回的验证码
     @Override
     public void showContent(CodeResponseBean bean) {
-         code = bean.getCode();
+        code = bean.getCode();
     }
 
     @Override
     public void goToLogin() {
-           Intent login= new Intent(this, LoginActivity.class);
-           login.putExtra(Contants.USERNAME,mPresenter.getUserName());
-           login.putExtra(Contants.PHONENUMBER,PhoneNumber);
-           login.putExtra(Contants.METHOD,mPresenter.getMethod());
-           startActivity(login);
+        Intent login = new Intent(this, LoginActivity.class);
+        login.putExtra(Contants.PHONENUMBER, PhoneNumber);
+        login.putExtra(Contants.METHOD, mPresenter.getMethod());
+        startActivity(login);
         finish();
     }
 
@@ -168,11 +187,19 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements Reg
     public void showMoreContent() {
 
     }
+
     //注册返回的数据
     @Override
     public void showResult(RegistResponseBean bean) {
-          mobliephone = bean.getMobliephone();
-          mPresenter.setUserName(bean.getUsername());//保存用户名
-          mPresenter.setMethod(bean.getMethod());//保存用户请求方式
+        mobliephone = bean.getMobliephone();
+        mPresenter.setUserName(bean.getUsername());//保存用户名
+        mPresenter.setMethod(bean.getMethod());//保存用户请求方式
     }
+
+    @Override
+    public void show(String msg) {
+
+    }
+
+
 }

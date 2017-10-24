@@ -1,5 +1,4 @@
 package moye.ganjiang.com.ganjiang.base;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -7,11 +6,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
-
 /**
  * Created by codeest on 16/8/11.
  * 无MVP的Fragment基类

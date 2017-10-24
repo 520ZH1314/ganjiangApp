@@ -1,52 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe_target"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/bg_colors">
+    android:background="@android:color/white"
+    android:scrollbars="none">
 
-    <ScrollView
+    <RelativeLayout
         android:id="@+id/ob_select"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="@android:color/white"
-        android:scrollbars="none">
+        android:layout_height="fill_parent">
+
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/tv_index_community"
-                    style="@style/text_white_16sp"
-                    android:clickable="true"
-                    android:paddingBottom="10.0dip"
-                    android:paddingLeft="10.0dip"
-                    android:paddingRight="10.0dip"
-                    android:paddingTop="35.0dip"
-                    android:text="社区"
-                    android:textColor="@color/bar_grey_90"
-                    android:textSize="15.0sp" />
-                <ImageView
-                    android:id="@+id/iv_selected_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/ten"
-                    android:layout_marginTop="30.0dip"
-                    android:src="@mipmap/icon_home_title_menu_open"
 
-                    android:button="@null" />
                 <com.youth.banner.Banner
                     android:id="@+id/vpl_index"
                     android:layout_width="fill_parent"
-                    android:layout_height="200.0dip"
-                   />
+                    android:layout_height="200.0dip">
 
+
+                </com.youth.banner.Banner>
+
+                <TextView
+                    android:id="@+id/signIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="15dp"
+                    android:background="@mipmap/qiandao"
+                    android:textAlignment="viewStart" />
             </RelativeLayout>
 
             <View style="@style/solid_hor_view_E1E1E1" />
@@ -64,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:padding="@dimen/five"
-                    android:src="@drawable/anmin_broadcast" />
+                    android:src="@mipmap/fx_xxzx" />
 
                 <TextView
                     style="@style/text_black_14sp"
@@ -73,7 +66,7 @@
                     android:layout_marginRight="@dimen/ten"
                     android:layout_weight="1.0"
                     android:drawableRight="@mipmap/arrow_right_2"
-                    android:text="关于调整会员等级名称公告" />
+                    android:text="江西银行系统维护的公告" />
             </LinearLayout>
 
             <View style="@style/solid_hor_view_E1E1E1" />
@@ -86,8 +79,7 @@
                 android:listSelector="@android:color/transparent"
                 android:numColumns="4"
                 android:padding="@dimen/ten"
-                android:scrollbars="none">
-            </GridView>
+                android:scrollbars="none"></GridView>
 
             <LinearLayout
 
@@ -98,9 +90,37 @@
                 android:orientation="vertical"
                 android:padding="@dimen/fifteen">
 
-                <TextView
-                    style="@style/text_black_16sp"
-                    android:text="财神道" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:layout_width="3dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="3dp"
+                        android:background="@color/RedFE4243" />
+
+                    <TextView
+                        android:id="@+id/home_newuser"
+                        style="@style/text_black_16sp"
+                        android:layout_marginLeft="3dip"
+                        android:text="XCH20170917050x" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginLeft="100dip"
+                        android:background="@drawable/shape_btn_red_yiban"
+                        android:gravity="center"
+                        android:text="新手专区"
+
+                        android:textColor="@color/white"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
 
                 <View
                     style="@style/solid_hor_view_E1E1E1"
@@ -113,15 +133,57 @@
                     android:layout_marginTop="@dimen/thirty"
                     android:orientation="horizontal">
 
-                    <TextView
-                        style="@style/text_orange66_16sp"
-                        android:text="10%"
-                        android:textSize="30.0sp" />
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dip"
+                       >
 
-                    <TextView
-                        style="@style/text_orange66_16sp"
-                        android:text="+5%"
-                        android:textSize="20.0sp" />
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/year_money"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="年化收益"
+                            android:textColor="@color/gray7"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_marginRight="10dip"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/select_progress_num"
+                            style="@style/text_orange66_16sp"
+                            android:text="10.00%"
+                            android:textSize="30.0sp" />
+                    </RelativeLayout>
+                    <View
+                        android:background="@color/grayE3E3E3"
+                        android:layout_width="1dip"
+                        android:layout_height="60dip">
+
+                    </View>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dip"
+                        >
+
+                        <TextView
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/project_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="项目日期"
+                            android:textColor="@color/gray7"
+                            android:textSize="12sp" />
+
+                        <TextView
+                             android:layout_marginLeft="10dip"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/tv_select_date"
+                            style="@style/text_orange66_16sp"
+                            android:text="30天"
+                            android:textSize="30.0sp" />
+                    </RelativeLayout>
+
                 </LinearLayout>
 
                 <TextView
@@ -131,7 +193,6 @@
                     android:text="平均历史年化收益" />
 
                 <ProgressBar
-
                     android:id="@+id/pb_progressbar"
                     style="@style/StyleProgressBarMiniOrange"
                     android:layout_width="fill_parent"
@@ -167,6 +228,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/seelct_go_buy"
                     style="@style/text_white_16sp"
                     android:layout_width="fill_parent"
                     android:layout_height="42.0dip"
@@ -416,18 +478,19 @@
                     android:background="@color/text_region_anquan" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
-
-    <ImageView
-        android:id="@+id/iv_selected_add2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/ten"
-        android:layout_marginTop="30.0dip"
-        android:background="@mipmap/icon_home_title_menu_open"
-        android:button="@null"
-        android:visibility="gone" />
 
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/iv_selected_add2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/ten"
+            android:layout_marginTop="30.0dip"
+            android:background="@mipmap/icon_home_title_menu_open"
+            android:button="@null"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+</ScrollView>

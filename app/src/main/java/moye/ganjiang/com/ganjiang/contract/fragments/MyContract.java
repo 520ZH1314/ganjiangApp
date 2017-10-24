@@ -18,10 +18,11 @@ public interface MyContract {
     }
 
     interface Presenter extends BasePresenter<View> {
-
+        String getUserPhone();
         void getData();
-
+        String getSessionId();
         void getMoreData();
+        String getLoginStatus();
 
     }
 }

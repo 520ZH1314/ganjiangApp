@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.aspsine.swipetoloadlayout.SwipeToLoadLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipeToLoadLayout"
     android:layout_width="match_parent"
+    app:load_more_enabled="false"
+    app:swipe_style="classic"
+    app:refresh_enabled="true"
+    app:refresh_trigger_offset="60dip"
+    app:release_to_refreshing_scrolling_duration="300"
     android:layout_height="match_parent">
-    <com.aspsine.swipetoloadlayout.SwipeRefreshHeaderLayout
+    <moye.ganjiang.com.ganjiang.widget.DownRefresh
         android:id="@id/swipe_refresh_header"
         android:layout_width="match_parent"
         android:gravity="center"
-        android:layout_height="100dp" />
+        android:layout_height="60dp" />
      <include
-         android:id="@+id/swipe_target"
          layout="@layout/activity_selected"/>
+    <com.aspsine.swipetoloadlayout.SwipeLoadMoreFooterLayout
+        android:id="@id/swipe_load_more_footer"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center" />
 </com.aspsine.swipetoloadlayout.SwipeToLoadLayout>

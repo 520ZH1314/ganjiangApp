@@ -2,10 +2,8 @@ package moye.ganjiang.com.ganjiang.model.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
-
 /**
  * 项目名称:ganjiang
  * Created by lovezh

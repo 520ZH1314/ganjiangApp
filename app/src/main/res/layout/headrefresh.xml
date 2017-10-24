@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:orientation="horizontal"
+    android:layout_height="60dip">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dip">
+
+
+        <ImageView
+
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/ref_view"
+             android:layout_marginRight="10dip"
+            android:id="@+id/head_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@mipmap/arrow_down" />
+    <ImageView
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/ref_view"
+        android:layout_marginRight="10dip"
+        android:id="@+id/head_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@mipmap/loading" />
+    <View
+        android:layout_centerInParent="true"
+        android:id="@+id/ref_view"
+        android:layout_width="0dip"
+        android:layout_height="0dip">
+
+    </View>
+    <TextView
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/head_arrow"
+        android:textSize="12sp"
+        android:textColor="@color/gray7"
+        android:text="下拉可以刷新"
+        android:id="@+id/ref_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
+</LinearLayout>
