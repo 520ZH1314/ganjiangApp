@@ -37,7 +37,7 @@ public class LoginActivityPresenter extends RxPresenter<LoginActivityContract.Vi
                        mView.showContent(loginResponseBean);
                        mView.showErrorMsg(loginResponseBean.getMsg());
                        //保存 status
-                     mDataManager.setLoginStatus(loginResponseBean.getStatus());
+                       mDataManager.setLoginStatus(loginResponseBean.getStatus());
                    }
                        @Override
                        public void onError(Throwable e) {
@@ -54,10 +54,12 @@ public class LoginActivityPresenter extends RxPresenter<LoginActivityContract.Vi
         mDataManager.setUserNumber(num);
     }
 
+
+    @Override
     //获取个人信息
-    public void getUserMessages() {
+    public void getUserMessages(String Mthod,String getUserBaseDetail,String SessionId) {
       addSubscribe(
-              mDataManager.fetchGetUserMessage("Mthod","getUserBaseDetail",mDataManager.getSessionId())
+              mDataManager.fetchGetUserMessage(Mthod,getUserBaseDetail,SessionId)
               .compose(RxUtil.<UserMeassageBean>rxSchedulerHelper())
               .subscribeWith(new CommonSubscriber<UserMeassageBean>(mView) {
                   @Override
@@ -67,7 +69,7 @@ public class LoginActivityPresenter extends RxPresenter<LoginActivityContract.Vi
                       mDataManager.setLoginStatus(status);
                       mView.showUserMessage(userMeassageBean);
 //                      //存入数据库
-//                      mDataManager.insertUserMessage(userMeassageBean);
+                      mDataManager.insertUserMessage(userMeassageBean);
 
                   }
 

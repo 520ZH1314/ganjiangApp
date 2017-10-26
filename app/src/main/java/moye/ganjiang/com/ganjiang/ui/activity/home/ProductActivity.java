@@ -8,10 +8,14 @@ import android.widget.TextView;
 import com.qindachang.widget.RulerView;
 
 import butterknife.BindView;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import moye.ganjiang.com.ganjiang.R;
 import moye.ganjiang.com.ganjiang.app.Contants;
 import moye.ganjiang.com.ganjiang.base.BaseActivity;
+import moye.ganjiang.com.ganjiang.base.Rxbus;
 import moye.ganjiang.com.ganjiang.contract.activity.home.ProductContract;
+import moye.ganjiang.com.ganjiang.model.response.UserMeassageBean;
 import moye.ganjiang.com.ganjiang.presenter.home.ProductPresenter;
 import moye.ganjiang.com.ganjiang.ui.activity.login.LoginActivity;
 import moye.ganjiang.com.ganjiang.widget.OpenDialog;
@@ -31,6 +35,9 @@ public class ProductActivity extends BaseActivity<ProductPresenter> implements P
     RulerView rulerViewHeight;
     @BindView(R.id.text_kaitong)
     TextView textKaitong;
+
+    private String isOpen;
+    private Disposable disposable;
 
 
     @Override
@@ -53,29 +60,40 @@ public class ProductActivity extends BaseActivity<ProductPresenter> implements P
         //立刻投资的按钮的点击事件
         textKaitong. setOnClickListener(v -> {
               //判断是否登录
-            if(TextUtils.isEmpty(mPresenter.getSessionId())){
+            String loginStatus = mPresenter.getLoginStatus();
+            if("2".equals(loginStatus)||"0".equals(loginStatus)|| TextUtils.isEmpty(loginStatus)){
                 //没有登录
                 mPresenter.goToOtherActivity(mContext, LoginActivity.class);
             }else{
-                //判断是否开通银行账号
-                if (mPresenter.IsOpen){
-                    //开通了 跳转到购买界面
-                    return;
-                }
-                new OpenDialog(mContext, (view, posion) -> {
-                    if (posion== Contants.OPEN){
-                        mPresenter.goToOtherActivity(mContext,BankDepositsActivity.class);
-
-                    }
-
-                }).show();
+                 mPresenter.IsOpen();
+                 mPresenter.getIsOpen();
+                 goToBank(isOpen);
 
             }
 
 
         });
     }
-// 绑定 Activity
+   //跳转到银行
+    private void goToBank(String isOpen) {
+
+        //判断是否开通银行账号
+        if ("1".equals(isOpen)){
+            //开通了 跳转到购买界面
+            return;
+        }else{
+            new OpenDialog(mContext, (view, posion) -> {
+                if (posion== Contants.OPEN){
+                    mPresenter.goToOtherActivity(getApplicationContext(),BankDepositsActivity.class);
+
+                }
+
+            }).show();
+        }
+
+    }
+
+    // 绑定 Activity
     @Override
     protected void initInject() {
         getActivityComponent().inject(this);
@@ -118,6 +136,27 @@ public class ProductActivity extends BaseActivity<ProductPresenter> implements P
     @Override
     protected void setToolBar(Toolbar toolbar, String title) {
         super.setToolBar(toolbar, title);
-        toolbar.setNavigationIcon(R.mipmap.fanhui);
+        toolbar.setNavigationIcon(R.mipmap.title_bar_back);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+         disposable = Rxbus.getDefault().toFlowable(UserMeassageBean.class)
+                .subscribe(new Consumer<UserMeassageBean>() {
+                    @Override
+                    public void accept(UserMeassageBean userMeassageBean) throws Exception {
+                        isOpen = userMeassageBean.isopenfsinfo;
+                    }
+                });
+    }
+
+    @Override
+    protected void onDestroy() {
+        if(!disposable.isDisposed()){
+            disposable.dispose();
+        }
+        super.onDestroy();
     }
 }

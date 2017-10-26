@@ -1,6 +1,7 @@
 package moye.ganjiang.com.ganjiang.ui.fragment.mine;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,7 +86,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
     }
     private void IsLogin() {
         String loginStatus = mPresenter.getLoginStatus();
-        if("2".equals(loginStatus)||"0".equals(loginStatus)){
+        if("2".equals(loginStatus)||"0".equals(loginStatus)|| TextUtils.isEmpty(loginStatus)){
             //没有登录
             IsLogin= false;
         }else{
@@ -277,7 +278,7 @@ public class MineFragment extends BaseFragment<MinePresenter> implements MineCon
         new OpenDialog(mContext, (view, posion) -> {
             if (posion== Contants.OPEN){
                 mPresenter.goToOtherActivity(mContext,BankDepositsActivity.class);
-                mActivity.finish();
+
             }
 
         }).show();

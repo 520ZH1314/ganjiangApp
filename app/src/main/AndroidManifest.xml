@@ -42,11 +42,16 @@
         <activity
             android:name=".ui.activity.regist.RegistActivity"
             android:launchMode="singleTop" />
-        <activity android:name=".ui.activity.mine.CertificationActivity" />
-        <activity android:name=".ui.activity.home.ProductActivity" />
-        <activity android:name=".ui.activity.login.UpDatePassWordActivity" />
-        <activity android:name=".ui.activity.home.BankDepositsActivity" />
-        <activity android:name=".ui.activity.home.BankBackActivity"></activity>
+        <activity android:name=".ui.activity.mine.CertificationActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".ui.activity.home.ProductActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".ui.activity.login.UpDatePassWordActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".ui.activity.home.BankDepositsActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".ui.activity.home.BankBackActivity"
+            android:launchMode="singleTop"></activity>
     </application>
 
 </manifest>

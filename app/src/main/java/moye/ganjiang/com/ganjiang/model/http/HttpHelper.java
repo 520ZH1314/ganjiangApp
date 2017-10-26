@@ -40,11 +40,13 @@ public interface HttpHelper {
     Flowable<String> fetchGetUpdatePwdYzm(String getValidationCode, String PhoneNumber);
 
     //银行注册
-    Flowable<BankBean> fetchRegistBankNum(String openAnAccount, String SessionId,
+    Flowable<BankBean> fetchRegistBankNum(String openAnAccount,
+                                          String SessionId,
                                           String PhoneNumber,
                                           String BankCard,
                                           String RealName,
-                                          String CardNumber
+                                          String CardNumber,
+                                          String UsrFlag
     );
 
     //获取标的数据
@@ -53,25 +55,7 @@ public interface HttpHelper {
     //获取更多标的数据
     Flowable<Markbean> fetchGetMoreMarkDatas(int tstatus, int pageNum);
 
-    //获得银行返回的数据
-    Flowable<String> fetchBackBankData(
-            String char_set,
-            String partner_id,
-            String version_no,
-            String biz_type,
-            String sign_type,
-            String MerBillNo,
-            String OpenType,
-            String IdentType,
-            String IdentNo,
-            String UsrName,
-            String MobileNo,
-            String OpenBankId,
-            String OpenAcctId,
-            String PageReturnUrl,
-            String BgRetUrl,
-            String MerPriv,
-            String mac);
+
 
 
 

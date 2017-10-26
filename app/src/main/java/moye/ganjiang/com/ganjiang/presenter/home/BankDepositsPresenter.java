@@ -27,18 +27,18 @@ public class BankDepositsPresenter extends RxPresenter<BankDepositsContract.View
 
     //去注册
     @Override
-    public  void RegistBankNum(String openAnAccount, String sessionId, String phone, String bankCard, String realName, String cardNumber) {
-        addSubscribe(mDataManager.fetchRegistBankNum(openAnAccount, sessionId, phone, bankCard, realName, cardNumber)
+    public void RegistBankNum(String openAnAccount, String sessionId, String phone, String bankCard, String realName, String cardNumber,String UsrFlag) {
+        addSubscribe(mDataManager.fetchRegistBankNum(openAnAccount, sessionId, phone, bankCard, realName, cardNumber,UsrFlag)
                 .compose(RxUtil.<BankBean> rxSchedulerHelper())
                 .subscribeWith(new CommonSubscriber<BankBean>(mView) {
                     @Override
                     public void onNext(BankBean bankBean) {
 
-                          //返回的数据
+                        //返回的数据
                         mDataManager.setReq_url(bankBean.getReq_url());
-                         mDataManager.setOpenBankStatus(bankBean.getStatus());
-                         mView.showContent(bankBean);
-                         mView.showErrorMsg(bankBean.getMsg());
+                        mDataManager.setOpenBankStatus(bankBean.getStatus());
+                        mView.showContent(bankBean);
+                        mView.showErrorMsg(bankBean.getMsg());
 
                     }
 
@@ -51,7 +51,6 @@ public class BankDepositsPresenter extends RxPresenter<BankDepositsContract.View
 
         );
     }
-
 
     @Override
     public void getMoreData() {

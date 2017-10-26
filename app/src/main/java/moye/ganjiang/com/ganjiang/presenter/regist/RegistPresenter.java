@@ -43,9 +43,7 @@ public class RegistPresenter extends RxPresenter<RegistContract.View> implements
     @Override
     public void goToRegist(String phonenumber, String password) {
         //判断手机号
-        if(TextUtils.isEmpty(phonenumber)){
-            return;
-        }else if (TUtils.isMobile(phonenumber)){
+       if (TUtils.isMobile(phonenumber)){
             addSubscribe(
                     mDataManager.fetchRegist(phonenumber, password)
                             .compose(RxUtil.<RegistResponseBean>rxSchedulerHelper())
@@ -53,13 +51,15 @@ public class RegistPresenter extends RxPresenter<RegistContract.View> implements
                                 @Override
                                 public void onNext(RegistResponseBean registBean) {
                                     mView.showResult(registBean);
-                                    mView.goToLogin();
+                                    mView.showErrorMsg(registBean.getMsg());
+                                    if ("1".equals(registBean.getStatus())){
+                                        mView.goToLogin();
+                                    }
+
                                 }
                             })
 
             );
-        }else {
-            mView.show("手机号码格式不正确");
         }
     }
 

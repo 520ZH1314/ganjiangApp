@@ -8,11 +8,11 @@ package moye.ganjiang.com.ganjiang.model.regist;
  */
 
 public class RegistResponseBean {
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -25,10 +25,19 @@ public class RegistResponseBean {
     }
 
     //状态码
-    public int status;
+    public String status;
     //短信验证码
     public String code;
 
+    public String getMsg() {
+        return Msg;
+    }
+
+    public void setMsg(String msg) {
+        Msg = msg;
+    }
+
+    public String Msg;
     public String getMobliephone() {
         return mobliephone;
     }

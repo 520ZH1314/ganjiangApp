@@ -22,6 +22,7 @@ public interface ProductContract {
     }
 
     interface Presenter extends BasePresenter<View> {
+        String getLoginStatus();
         void getData();
         String getSessionId();
         List<UserMeassageBean> getUserMessage();

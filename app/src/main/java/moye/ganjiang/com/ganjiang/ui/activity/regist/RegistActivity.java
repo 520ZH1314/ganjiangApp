@@ -101,18 +101,12 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements Reg
 
                 if (!cbRegistXy.isChecked()) {
                     ToastUtil.shortShow(" 请勾选同意选项");
-                } else if (TextUtils.isEmpty(PhoneNumber)) {
-                    ToastUtil.shortShow("手机号码不能为空");
-
                 } else if (TextUtils.isEmpty(etRegistYzm.getText().toString().trim())) {
 
                     ToastUtil.shortShow(" 验证码不能为空");
                 } else if (!code.equals(etRegistYzm.getText().toString().trim())) {
 
                     ToastUtil.shortShow(" 验证码不正确");
-                } else if (TextUtils.isEmpty(password)) {
-
-                    ToastUtil.shortShow(" 密码不能为空");
                 } else {
                     //去注册
                     mPresenter.goToRegist(PhoneNumber, password);
@@ -145,7 +139,7 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements Reg
 
     @Override
     public void showErrorMsg(String msg) {
-
+           super.showErrorMsg(msg);
     }
 
     @Override

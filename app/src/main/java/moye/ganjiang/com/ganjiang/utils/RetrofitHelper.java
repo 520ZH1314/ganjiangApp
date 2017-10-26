@@ -5,7 +5,6 @@ import javax.inject.Inject;
 import io.reactivex.Flowable;
 import moye.ganjiang.com.ganjiang.model.contentdata.Markbean;
 import moye.ganjiang.com.ganjiang.model.home.LunBoBean;
-import moye.ganjiang.com.ganjiang.model.http.Bankback;
 import moye.ganjiang.com.ganjiang.model.http.ContentData;
 import moye.ganjiang.com.ganjiang.model.http.HttpHelper;
 import moye.ganjiang.com.ganjiang.model.http.OpenBankNum;
@@ -29,14 +28,14 @@ public class RetrofitHelper implements HttpHelper {
     private Regist mRegist;
     private OpenBankNum mOpen;
     private ContentData mMark;
-    private  Bankback mBankback;
+
     @Inject
-    public RetrofitHelper(RegistOrlogin registOrlogin, Regist regist, OpenBankNum openBankNum, ContentData Mmark, Bankback bankback) {
+    public RetrofitHelper(RegistOrlogin registOrlogin, Regist regist, OpenBankNum openBankNum, ContentData Mmark) {
         this.mRegistOrlogin = registOrlogin;
         this.mRegist = regist;
         this.mOpen=openBankNum;
         this.mMark=Mmark;
-        this.mBankback=bankback;
+
 
     }
 
@@ -80,8 +79,8 @@ public class RetrofitHelper implements HttpHelper {
     }
     //银行开户
     @Override
-    public Flowable<BankBean> fetchRegistBankNum(String openAnAccount, String SessionId, String PhoneNumber, String BankCard, String RealName, String CardNumber) {
-        return mOpen.RegistBankNum(openAnAccount,SessionId,PhoneNumber,BankCard,RealName,CardNumber);
+    public Flowable<BankBean> fetchRegistBankNum(String openAnAccount, String SessionId, String PhoneNumber, String BankCard, String RealName, String CardNumber,String UsrFlag) {
+        return mOpen.RegistBankNum(openAnAccount,SessionId,PhoneNumber,BankCard,RealName,CardNumber,UsrFlag);
     }
 
     @Override
@@ -94,13 +93,7 @@ public class RetrofitHelper implements HttpHelper {
         return mMark.getMoreContentData(tstatus,pageNum);
     }
 
-    @Override
-    public Flowable<String> fetchBackBankData(String char_set, String partner_id, String version_no, String biz_type, String sign_type, String MerBillNo,
-                                              String OpenType, String IdentType, String IdentNo, String UsrName, String MobileNo, String OpenBankId,
-                                              String OpenAcctId, String PageReturnUrl, String BgRetUrl, String MerPriv, String mac) {
-        return mBankback.Backbank(char_set,partner_id,version_no,biz_type,sign_type,MerBillNo,OpenType,IdentType,IdentNo,UsrName,MobileNo,OpenBankId,OpenAcctId
-                                                            ,PageReturnUrl,BgRetUrl,MerPriv,mac);
-    }
+
 
     //获取轮播图
    @Override

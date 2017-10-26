@@ -6,7 +6,7 @@ import moye.ganjiang.com.ganjiang.base.CommonSubscriber;
 import moye.ganjiang.com.ganjiang.base.RxPresenter;
 import moye.ganjiang.com.ganjiang.contract.activity.home.BankBackContract;
 import moye.ganjiang.com.ganjiang.model.http.DataManager;
-import moye.ganjiang.com.ganjiang.model.regist.BankBean;
+import moye.ganjiang.com.ganjiang.model.response.UserMeassageBean;
 import moye.ganjiang.com.ganjiang.utils.RxUtil;
 
 /**
@@ -27,61 +27,40 @@ public class BankBackPresenter extends RxPresenter<BankBackContract.View> implem
 
 
     @Override
-    public void getdata(BankBean bean) {
-
-        String char_set=bean.getChar_set();
-        String partner_id=bean.getPartner_id();
-        String version_no=bean.getVersion_no();
-        String biz_type=bean.getBiz_type();
-        String sign_type=bean.getSign_type();
-        String MerBillNo=bean.getMerBillNo();
-        String OpenType=bean.getOpenType();
-        String IdentType=bean.getIdentType();
-        String IdentNo=bean.getIdentNo();
-        String UsrName=bean.getUsrName();
-        String MobileNo=bean.getMobileNo();
-        String OpenBankId=bean.getOpenBankId();
-        String OpenAcctId=bean.getOpenAcctId();
-        String PageReturnUrl=bean.getPageReturnUrl();
-        String BgRetUrl=bean.getBgRetUrl();
-        String MerPriv=bean.getMerPriv();
-        String mac=bean.getMac();
-         addSubscribe(
-                 mDataManager.fetchBackBankData(
-                 char_set,
-                 partner_id,
-                 version_no,
-                 biz_type,
-                 sign_type,
-                 MerBillNo,
-                 OpenType,
-                 IdentType,
-                 IdentNo,
-                 UsrName,
-                 MobileNo,
-                 OpenBankId,
-                 OpenAcctId,
-                 PageReturnUrl,
-                 BgRetUrl,
-                 MerPriv,
-                 mac
-                 )
-           .compose(RxUtil.<String> rxSchedulerHelper())
-            .subscribeWith(new CommonSubscriber<String>(mView) {
-                @Override
-                public void onNext(String s) {
-                   mView.showContent(s);
-                }
-            })
-
-
-         );
-
+    public String getReq_url() {
+        return mDataManager.getReq_url();
     }
 
     @Override
     public void getMoreData() {
 
+    }
+
+    //获取个人信息
+    public void getUserMessages(String Mthod,String getUserBaseDetail,String SessionId) {
+        addSubscribe(
+                mDataManager.fetchGetUserMessage(Mthod,getUserBaseDetail,SessionId)
+                        .compose(RxUtil.<UserMeassageBean>rxSchedulerHelper())
+                        .subscribeWith(new CommonSubscriber<UserMeassageBean>(mView) {
+                            @Override
+                            public void onNext(UserMeassageBean userMeassageBean) {
+                                //保存状态状态
+                                String status = userMeassageBean.getStatus();
+                                mDataManager.setLoginStatus(status);
+                                mView.showData(userMeassageBean);
+//                      //存入数据库
+//                      mDataManager.insertUserMessage(userMeassageBean);
+
+                            }
+
+
+                        })
+
+        );
+    }
+    @Override
+    public void UpdateUserMessage(UserMeassageBean userMeassageBean) {
+        mDataManager.updateUserMessage(userMeassageBean);
     }
 
     @Override

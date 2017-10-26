@@ -1,6 +1,5 @@
 package moye.ganjiang.com.ganjiang.ui.activity.home;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
@@ -39,7 +38,7 @@ public class BankDepositsActivity extends BaseActivity<BankDepositsPresenter> im
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initView();
+        setToolBar(toobarOpenBank, " ");
     }
 
     private void initView() {
@@ -62,13 +61,15 @@ public class BankDepositsActivity extends BaseActivity<BankDepositsPresenter> im
             mPresenter.RegistBankNum("openAnAccount",mPresenter.getSessionId(),
                     phone,
                     bankCard,
-                    realName, cardNumber);
+                    realName, cardNumber,"1");
 
 
         });
 
 
     }
+
+
 
     @Override
     public void showErrorMsg(String msg) {
@@ -104,35 +105,20 @@ public class BankDepositsActivity extends BaseActivity<BankDepositsPresenter> im
     @Override
     public void showContent(BankBean bean) {
          status = bean.getStatus();
-        String char_set=bean.getChar_set();
-        String partner_id=bean.getPartner_id();
-        String version_no=bean.getVersion_no();
-        String biz_type=bean.getBiz_type();
-        String sign_type=bean.getSign_type();
-        String MerBillNo=bean.getMerBillNo();
-        String OpenType=bean.getOpenType();
-        String IdentType=bean.getIdentType();
-        String IdentNo=bean.getIdentNo();
-        String UsrName=bean.getUsrName();
-        String MobileNo=bean.getMobileNo();
-        String OpenBankId=bean.getOpenBankId();
-        String OpenAcctId=bean.getOpenAcctId();
-        String PageReturnUrl=bean.getPageReturnUrl();
-        String BgRetUrl=bean.getBgRetUrl();
-        String MerPriv=bean.getMerPriv();
-        String mac=bean.getMac();
         if("1".equals(status)){
             //开通成功
             //去银行返回的界面
-            Intent intent = new Intent(mContext,BankBackActivity.class);
-            intent.putExtra("BankBean",new BankBean(status," "," ",char_set,partner_id,version_no,biz_type,sign_type,MerBillNo,OpenType
-                    ,IdentType,IdentNo,UsrName,MobileNo,OpenBankId,OpenAcctId,PageReturnUrl,BgRetUrl,MerPriv,mac," "));
-            startActivity(intent);
-
-
+             mPresenter.goToOtherActivity(mContext,BankBackActivity.class);
+             finish();
         }else {
              return;
         }
+    }
+
+    @Override
+    protected void setToolBar(Toolbar toolbar, String title) {
+        super.setToolBar(toolbar, title);
+        toolbar.setNavigationIcon(R.mipmap.title_bar_back);
     }
 
     @Override

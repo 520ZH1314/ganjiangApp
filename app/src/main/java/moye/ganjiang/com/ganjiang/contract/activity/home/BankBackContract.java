@@ -2,7 +2,7 @@ package moye.ganjiang.com.ganjiang.contract.activity.home;
 
 import moye.ganjiang.com.ganjiang.base.BasePresenter;
 import moye.ganjiang.com.ganjiang.base.BaseView;
-import moye.ganjiang.com.ganjiang.model.regist.BankBean;
+import moye.ganjiang.com.ganjiang.model.response.UserMeassageBean;
 
 /**
  * 项目名称:ganjiang
@@ -16,11 +16,14 @@ public interface BankBackContract {
         void showContent(String s);
 
         void showMoreContent();
+
+        void showData(UserMeassageBean userMeassageBean);
     }
 
     interface Presenter extends BasePresenter<View> {
-        void getdata(BankBean bean);
+        String getReq_url();
         void getMoreData();
+        void UpdateUserMessage(UserMeassageBean userMeassageBean);
         String getSessionId();
     }
 }

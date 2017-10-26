@@ -1,6 +1,7 @@
 package moye.ganjiang.com.ganjiang.ui.fragment.search;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,9 +87,10 @@ public class SearchFragment extends BaseFragment<MyPresenter> implements MyContr
         if(IsLogin){
             tvSearchPhone.setText(mPresenter.getUserPhone());
             tvSearchRank.setVisibility(View.VISIBLE);
+            tvSearchPhone.setClickable(false);
         }else{
-
             tvSearchPhone.setText("登录/注册");
+            tvSearchPhone.setClickable(true);
             tvSearchRank.setVisibility(View.GONE);
             tvSearchPhone.setOnClickListener(v->{
                 mPresenter.goToOtherActivity(mContext, LoginActivity.class);
@@ -103,7 +105,7 @@ public class SearchFragment extends BaseFragment<MyPresenter> implements MyContr
  */
     private void IsLogin() {
         String loginStatus = mPresenter.getLoginStatus();
-        if("2".equals(loginStatus)||"0".equals(loginStatus)){
+        if("2".equals(loginStatus)||"0".equals(loginStatus)|| TextUtils.isEmpty(loginStatus)){
             //没有登录
             IsLogin= false;
         }else{

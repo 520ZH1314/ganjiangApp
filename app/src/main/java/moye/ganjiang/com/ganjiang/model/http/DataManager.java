@@ -76,8 +76,8 @@ public class DataManager implements HttpHelper, PreferencesHelper, DBHelper {
 
     //银行卡注册
     @Override
-    public Flowable<BankBean> fetchRegistBankNum(String openAnAccount, String SessionId, String PhoneNumber, String BankCard, String RealName, String CardNumber) {
-        return mHttpHelper.fetchRegistBankNum(openAnAccount, SessionId, PhoneNumber, BankCard, RealName, CardNumber);
+    public Flowable<BankBean> fetchRegistBankNum(String openAnAccount, String SessionId, String PhoneNumber, String BankCard, String RealName, String CardNumber,String UsrFlag) {
+        return mHttpHelper.fetchRegistBankNum(openAnAccount, SessionId, PhoneNumber, BankCard, RealName, CardNumber,UsrFlag);
     }
 
     //获取标数据
@@ -92,32 +92,33 @@ public class DataManager implements HttpHelper, PreferencesHelper, DBHelper {
         return mHttpHelper.fetchGetMoreMarkDatas(tstatus, pageNum);
     }
 
-    @Override
-    public Flowable<String> fetchBackBankData(String char_set, String partner_id, String version_no,
-                                              String biz_type, String sign_type, String MerBillNo,
-                                              String OpenType, String IdentType, String IdentNo,
-                                              String UsrName, String MobileNo, String OpenBankId,
-                                              String OpenAcctId, String PageReturnUrl,
-                                              String BgRetUrl, String MerPriv, String mac) {
-        return mHttpHelper.fetchBackBankData(
-                char_set, partner_id,
-                version_no,
-                biz_type,
-                sign_type,
-                MerBillNo,
-                OpenType,
-                IdentType,
-                IdentNo,
-                UsrName,
-                MobileNo,
-                OpenBankId,
-                OpenAcctId,
-                PageReturnUrl,
-                BgRetUrl,
-                MerPriv,
-                mac);
 
-    }
+//    @Override
+//    public Flowable<String> fetchBackBankData(String char_set, String partner_id, String version_no,
+//                                              String biz_type, String sign_type, String MerBillNo,
+//                                              String OpenType, String IdentType, String IdentNo,
+//                                              String UsrName, String MobileNo, String OpenBankId,
+//                                              String OpenAcctId, String PageReturnUrl,
+//                                              String BgRetUrl, String MerPriv, String mac) {
+//        return mHttpHelper.fetchBackBankData(
+//                char_set, partner_id,
+//                version_no,
+//                biz_type,
+//                sign_type,
+//                MerBillNo,
+//                OpenType,
+//                IdentType,
+//                IdentNo,
+//                UsrName,
+//                MobileNo,
+//                OpenBankId,
+//                OpenAcctId,
+//                PageReturnUrl,
+//                BgRetUrl,
+//                MerPriv,
+//                mac);
+//
+//    }
 
 
     //银行注册

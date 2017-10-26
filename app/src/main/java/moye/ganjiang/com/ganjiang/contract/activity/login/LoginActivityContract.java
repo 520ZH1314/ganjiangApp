@@ -24,6 +24,7 @@ public interface LoginActivityContract {
 
         void login(String Method,String username,String Password);
         void setUserNumber(String num);
+        void getUserMessages(String Mthod,String getUserBaseDetail,String SessionId);
         void getMoreData();
         String getSessionId();
         void setSessionId(String SessionId);

@@ -1,5 +1,7 @@
 package moye.ganjiang.com.ganjiang.presenter.home;
 
+import android.text.TextUtils;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -18,7 +20,7 @@ import moye.ganjiang.com.ganjiang.model.response.UserMeassageBean;
 public class ProductPresenter extends RxPresenter<ProductContract.View> implements ProductContract.Presenter{
 
     private DataManager mDataManager;
-    public boolean IsOpen=false;
+    public String IsOpen;
 
     @Inject
     public ProductPresenter(DataManager mDataManager) {
@@ -45,29 +47,32 @@ public List<UserMeassageBean> getUserMessage() {
 }
 //判断是否开通银行账号
 
-    private void IsOpen()
-    {
-        for (UserMeassageBean data:mDataManager.queryAllUsers()) {
-            if("0".equals(data.isopenfsinfo)){
-                //没有开通
-                IsOpen=false;
-            }else{
-                IsOpen=true;
+    public void IsOpen() {
+        for (UserMeassageBean data : mDataManager.queryAllUsers()) {
+            if ("0".equals(data.isopenfsinfo)&&!TextUtils.isEmpty(data.isopenfsinfo)) {
+                IsOpen= "0";
+            } else {
+               IsOpen="1";
             }
         }
-
-
     }
+    //获取状态码
+    public String getIsOpen(){
 
+        return  IsOpen;
+    }
     @Override
     public void getMoreData() {
 
     }
 
-
-
     @Override
     public void detachView() {
         super.detachView();
+    }
+    //判断是否登录
+    @Override
+    public String getLoginStatus() {
+        return mDataManager.getLoginStatus();
     }
 }

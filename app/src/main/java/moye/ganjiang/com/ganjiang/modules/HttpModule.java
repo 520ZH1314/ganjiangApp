@@ -15,12 +15,10 @@ import dagger.Module;
 import dagger.Provides;
 import moye.ganjiang.com.ganjiang.BuildConfig;
 import moye.ganjiang.com.ganjiang.app.Contants;
-import moye.ganjiang.com.ganjiang.model.http.Bankback;
 import moye.ganjiang.com.ganjiang.model.http.ContentData;
 import moye.ganjiang.com.ganjiang.model.http.OpenBankNum;
 import moye.ganjiang.com.ganjiang.model.http.Regist;
 import moye.ganjiang.com.ganjiang.model.http.RegistOrlogin;
-import moye.ganjiang.com.ganjiang.qualifier.BankbackUrl;
 import moye.ganjiang.com.ganjiang.qualifier.ContentDataUrl;
 import moye.ganjiang.com.ganjiang.qualifier.OpenBankUrl;
 import moye.ganjiang.com.ganjiang.qualifier.RegistOrLoginUrl;
@@ -71,15 +69,7 @@ public class HttpModule {
 
   }
 
-  //银行返回的数据
-    @Singleton
-    @Provides
-    @BankbackUrl
-    Retrofit provideRegistBackBankRetrofit(Retrofit.Builder builder, OkHttpClient client) {
 
-        return createRetrofit(builder, client, Contants.REQURL);
-
-    }
 
 
 
@@ -190,12 +180,7 @@ public class HttpModule {
     ContentData provideGetMarkDataService(@ContentDataUrl Retrofit retrofit){
         return  retrofit.create(ContentData.class);
     }
-    //请求银行的数据
-    @Singleton
-    @Provides
-    Bankback provideGetBackbankService(@BankbackUrl Retrofit retrofit){
-        return  retrofit.create(Bankback.class);
-    }
+
 
 
 //    @Singleton

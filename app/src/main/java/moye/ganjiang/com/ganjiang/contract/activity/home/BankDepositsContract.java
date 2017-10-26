@@ -23,7 +23,9 @@ public interface BankDepositsContract {
                            String phone,
                            String bankCard ,
                            String realName,
-                           String cardNumber);
+                           String cardNumber,
+                           String UsrFlag
+        );
         void getMoreData();
         String getSessionId();
     }

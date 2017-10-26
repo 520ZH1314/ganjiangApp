@@ -18,12 +18,15 @@ public interface OpenBankNum {
 
     @FormUrlEncoded
     @POST("ui/app/userMaster.action")
-    Flowable<BankBean> RegistBankNum(@Field("Method")String openAnAccount,
+    Flowable<BankBean> RegistBankNum(
+
+                                     @Field("Method")String openAnAccount,
                                      @Field("sessionId") String SessionId,
                                      @Field("phone") String PhoneNumber,
                                      @Field("bankCard") String BankCard,
                                      @Field("realName") String RealName,
-                                     @Field("cardNumber") String CardNumber
+                                     @Field("cardNumber") String CardNumber,
+                                     @Field("UsrFlag") String UsrFlag
 
     );
 

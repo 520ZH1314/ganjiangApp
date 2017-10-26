@@ -1,8 +1,12 @@
 package moye.ganjiang.com.ganjiang;
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.widget.FrameLayout;
+import android.widget.Toast;
+
 import butterknife.BindView;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
@@ -72,7 +76,24 @@ public class MainActivity extends BaseActivity<MainActivityPresenter> implements
         // 设置横向(和安卓4.x动画相同)
         return new DefaultHorizontalAnimator();
     }
+    // 用来计算返回键的点击间隔时间
+    private long exitTime = 0;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                //弹出提示，可以有多种方式
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true;
+        }
 
+        return super.onKeyDown(keyCode, event);
+    }
     @Override
     public void showProgress() {
 

@@ -11,7 +11,6 @@ import butterknife.BindView;
 import io.reactivex.disposables.Disposable;
 import moye.ganjiang.com.ganjiang.R;
 import moye.ganjiang.com.ganjiang.app.Contants;
-import moye.ganjiang.com.ganjiang.base.App;
 import moye.ganjiang.com.ganjiang.base.BaseActivity;
 import moye.ganjiang.com.ganjiang.contract.activity.login.LoginActivityContract;
 import moye.ganjiang.com.ganjiang.model.login.LoginResponseBean;
@@ -83,7 +82,7 @@ public class LoginActivity extends BaseActivity<LoginActivityPresenter> implemen
         tvLoginGoRegist. setOnClickListener(v->{
 
             mPresenter.goToOtherActivity(mContext, RegistActivity.class);
-
+             finish();
 
         });
         //修改密码点击事件
@@ -141,8 +140,9 @@ public class LoginActivity extends BaseActivity<LoginActivityPresenter> implemen
         status = loginResponseBean.getStatus();
         if ("1".equals(status)) {
             mPresenter.setUserNumber(PhoneNumber);
-            //登录成功
-
+             //登录成功
+             //获取个人信息
+            mPresenter.getUserMessages("Mthod","getUserBaseDetail",mPresenter.getSessionId());
             finish();
 
         } else {
@@ -163,16 +163,11 @@ public class LoginActivity extends BaseActivity<LoginActivityPresenter> implemen
     @Override
     public void showUserMessage(UserMeassageBean bean) {
 
-        //存入数据库
-        App.getAppComponent().getDataManager().insertUserMessage(bean);
+
+
 
     }
 
-    //获取用户信息
-    public void getData() {
-        mPresenter.getUserMessages();
-
-    }
 
     @Override
     protected void setToolBar(Toolbar toolbar, String title) {
