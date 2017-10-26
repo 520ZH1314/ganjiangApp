@@ -29,5 +29,6 @@ public interface Contants {
     public static final int OPEN= 0X001;
     String LOGINSTATUS="LoginStatus";
     String REQURL="http://mtest.cbhb.com.cn/";
-
+    String SUCCESSINTERCEPT="http://my.damatouzi.com/bohai/userBankAccountRegister/appsuccess.action";
+    String FAILINTERCEPT="http://my.damatouzi.com/bohai/userBankAccountRegister/appfail.action";
 }
